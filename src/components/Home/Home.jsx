@@ -3,12 +3,11 @@ import HeroSlider from "./HeroSlider/HeroSlider";
 import CustomerReview from "../CustomerReview/CustomerReview";
 
 import Service from "./Service/Service";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { Suspense } from "react";
 
-const servicePromise = fetch("http://localhost:5000/service").then((res) =>
-  res.json()
-);
+const servicePromise = fetch("http://localhost:5000/service")
+.then((res) =>res.json());
 
 const Home = () => {
     const Navigate = useNavigate()
