@@ -1,10 +1,9 @@
+
 import React from 'react';
 
 const Services = () => {
     return (
-        <div>
-            
-        </div>
+         <h1></h1>
     );
 };
 
