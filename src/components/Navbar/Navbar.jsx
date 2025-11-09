@@ -3,7 +3,18 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  
+  const handleLogOut = () => {
+    logOut()
+    .then(result => {
+      console.log('Successfully Logout',result)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
   const links = (
     <>
       <li className="inter-font text-gray-600">
@@ -12,6 +23,23 @@ const Navbar = () => {
       <li className="inter-font text-gray-600">
         <NavLink to="/Services">Services</NavLink>
       </li>
+
+      {
+        user && <>
+         <li className="inter-font text-gray-600">
+        <NavLink to="/my-service">My Service</NavLink>
+      </li>
+      <li className="inter-font text-gray-600">
+        <NavLink to="/add-service">Add Service</NavLink>
+      </li>
+      <li className="inter-font text-gray-600">
+        <NavLink to="/my-bookings">My Bookings</NavLink>
+      </li>
+      <li className="inter-font text-gray-600">
+        <NavLink to="/profile">Profile</NavLink>
+      </li>
+        </>
+      }
     </>
   );
   return (
@@ -53,9 +81,9 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <>
-            <img src={user.photoURL || "https://i.ibb.co/Kz0jptXW/profile.jpg"} alt="" />
+            <img className="w-8 h-8 rounded-full mr-3" src={user.photoURL || "https://i.ibb.co/Kz0jptXW/profile.jpg"} alt="" />
             <p className="font-bold mr-3 text-xl">{user.displayName || "User"}</p>
-            <button className="btn-primary">Logout</button>
+            <button onClick={handleLogOut} className="btn-primary">Logout</button>
           </>
         ) : (
           <>
