@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Navbar = () => {
-    const links = <>
-    <li className="inter-font text-gray-600"><NavLink to='/'>Home</NavLink></li>
-    <li className="inter-font text-gray-600"><NavLink to='/Services'>Services</NavLink></li>
+  const { user } = useContext(AuthContext);
+  const links = (
+    <>
+      <li className="inter-font text-gray-600">
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li className="inter-font text-gray-600">
+        <NavLink to="/Services">Services</NavLink>
+      </li>
     </>
+  );
   return (
     <div className="navbar bg-base-100 shadow-sm sticky top-0">
       <div className="navbar-start">
@@ -31,20 +39,38 @@ const Navbar = () => {
             tabIndex="-1"
             className="menu menu-sm dropdown-content  bg-base-100  rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-           {links}
+            {links}
           </ul>
         </div>
-       <p className="font-bold text-2xl font-logo"> Home<span className="text-gradient">Hero</span></p>
+        <p className="font-bold text-2xl font-logo">
+          {" "}
+          Home<span className="text-gradient">Hero</span>
+        </p>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-white">
-         {links}
-          
-        </ul>
+        <ul className="menu menu-horizontal px-1 text-white">{links}</ul>
       </div>
       <div className="navbar-end">
-       <Link to='/login'> <a className="btn btn-outline mr-5 inter-font font-medium">Login</a></Link>
-       <Link to='/register'> <a className="btn btn-outline">Register</a></Link>
+        {user ? (
+          <>
+            <img src={user.photoURL || "https://i.ibb.co/Kz0jptXW/profile.jpg"} alt="" />
+            <p className="font-bold mr-3 text-xl">{user.displayName || "User"}</p>
+            <button className="btn-primary">Logout</button>
+          </>
+        ) : (
+          <>
+            <Link
+              className="btn btn-primary mr-5 inter-font font-medium"
+              to="/login"
+            >
+              Login
+            </Link>
+            <Link className="btn btn-primary" to="/register">
+              {" "}
+              Register
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

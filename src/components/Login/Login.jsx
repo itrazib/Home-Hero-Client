@@ -1,8 +1,25 @@
-import React from 'react';
+
+import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from 'react-router';
+import { AuthContext } from "../../Context/AuthContext";
+
 const Login = () => {
+  const {signIngoogle} = useContext(AuthContext)
+  
     const Navigate = useNavigate()
+
+    const handleGoogleSignIn = () => {
+      console.log("clicks")
+        signIngoogle()
+        .then(result => {
+          console.log(result.user)
+          Navigate('/')
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
     return (
          <div className="flex justify-center items-center min-h-screen bg-gray-50">
       <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8">
@@ -54,7 +71,7 @@ const Login = () => {
         </div>
 
         {/* Google Sign-in */}
-        <button className="w-full py-2 flex justify-center items-center gap-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-all">
+        <button onClick={handleGoogleSignIn} className="w-full py-2 flex justify-center items-center gap-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-all">
           <FcGoogle className="text-xl" />
           <span className="font-medium">Sign In With Google</span>
         </button>
