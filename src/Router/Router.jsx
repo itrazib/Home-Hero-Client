@@ -9,6 +9,7 @@ import Myservice from "../components/Myservice/Myservice";
 import AddService from "../components/AddService/AddService";
 import MyBookings from "../components/MyBookings/MyBookings";
 import Profile from "../components/Profile/Profile";
+import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
 
 export const router = createBrowserRouter([
     {
@@ -54,6 +55,12 @@ export const router = createBrowserRouter([
                 path:'/profile',
                 element: <PrivateRoute>
                     <Profile></Profile>
+                </PrivateRoute>
+            },
+            {
+                path:'/service-details/:id',
+                element:<PrivateRoute>
+                    <ServiceDetails></ServiceDetails>
                 </PrivateRoute>
             }
         ]

@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const ServiceCard = ({service}) => {
-    const {name, image, price, category} = service;
+    const {_id, name, image, price, category} = service;
     return (
        <div className="my-5 bg-white rounded-2xl shadow-md overflow-hidden  hover:shadow-lg transition-all">
       {/* Image */}
@@ -31,9 +32,11 @@ const ServiceCard = ({service}) => {
         </p>
 
         {/* Button */}
+       <Link to={`/service-details/${_id}`}>
         <button className="w-full mt-4 py-2 btn-outline rounded-lg hover:bg-purple-600 hover:text-white transition-all">
           View Details
         </button>
+       </Link>
       </div>
     </div>
     );
