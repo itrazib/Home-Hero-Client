@@ -22,9 +22,6 @@ const Myservice = () => {
         </h1>
       </div>
       <div className="">
-        {/* {
-                service.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
-            } */}
 
         <div className="overflow-x-auto">
           <table className="table bg-white">
