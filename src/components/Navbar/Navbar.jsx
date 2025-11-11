@@ -70,10 +70,10 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <p className="font-bold text-2xl font-logo">
+       <Link to='/'> <p className="font-bold text-2xl font-logo">
           {" "}
           Home<span className="text-gradient">Hero</span>
-        </p>
+        </p></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-white">{links}</ul>

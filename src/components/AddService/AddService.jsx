@@ -1,24 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Context/AuthContext";
 
 const AddService = () => {
-  // name
-  // "Laptop Repair"
-  // category
-  // "Electronics"
-  // price
-  // 80
-  // description
-  // "Expert laptop repair and maintenance service."
-  // image
-  // "https://i.ibb.co/xyz456/laptop.jpg"
-  // providerName
-  // "TechFix Solutions"
-  // providerEmail
-  // "provider4@example.com"
-  // createdAt
-  // 2025-11-09T06:15:00.000+00:00
-
+  const {loading} = useContext(AuthContext)
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -64,6 +49,17 @@ const AddService = () => {
         }
       });
   };
+
+  if(loading){
+    return (
+      <div className="fixed inset-0 bg-white/70 flex flex-col items-center justify-center z-50">
+                <div className="w-12 h-12 border-4 border-pink-500 border-dashed rounded-full animate-spin"></div>
+                <p className="mt-3 text-gradient text-lg font-semibold">
+                  Loading...
+                </p>
+              </div>
+    )
+  }
   return (
     <div className="max-w-lg mx-auto p-6 bg-white rounded-xl shadow-md mt-10 inter-font ">
       <h2 className="text-2xl font-bold mb-4 text-center text-gradient">
