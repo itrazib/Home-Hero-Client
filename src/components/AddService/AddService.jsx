@@ -61,7 +61,8 @@ const AddService = () => {
     )
   }
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white rounded-xl shadow-md mt-10 inter-font ">
+    <div className="max-w-lg mx-auto p-6 bg-white rounded-xl shadow-md mt-10 inter-font transform hover:scale-105 transition duration-300">
+      <title>Add Service</title>
       <h2 className="text-2xl font-bold mb-4 text-center text-gradient">
         Add New Service
       </h2>

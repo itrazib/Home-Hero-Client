@@ -75,6 +75,7 @@ const MyBookings = () => {
 
   return (
     <div className="max-w-[1550px] mx-auto inter-font px-3 sm:px-6 lg:px-10"> 
+    <title>My Bookings</title>
       <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mt-10 mb-7"> 
         My <span className="text-gradient">Bookings</span>
       </h1>
@@ -93,7 +94,7 @@ const MyBookings = () => {
           </thead>
           <tbody>
             {myBooking.map((booking, index) => (
-              <tr key={index} className="hover:bg-gray-500"> 
+              <tr key={index}> 
                 <th>{index + 1}</th>
                 <td>
                   <div className="flex items-center gap-3">

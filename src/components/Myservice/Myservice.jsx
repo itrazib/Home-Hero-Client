@@ -61,6 +61,7 @@ const Myservice = () => {
   }
   return (
     <div className="max-w-[1550px] mx-auto inter-font">
+      <title>My Service</title>
       <div>
         <h1 className="text-5xl font-bold text-center mt-10 mb-7">
           My <span className="text-gradient">Service</span>

@@ -92,6 +92,7 @@ const ServiceDetails = () => {
 
   return (
     <div className="max-w-[1550px] inter-font mx-auto mt-10">
+      <title>{service.name}</title>
       {/* Service Details */}
       <div className="bg-white rounded-2xl shadow-lg p-8 grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
@@ -138,7 +139,7 @@ const ServiceDetails = () => {
               </button>
               <button
                 onClick={handleReviewModal}
-                className="w-[150px] btn-outline py-3 rounded-lg font-semibold"
+                className="w-full btn   py-3 rounded-lg font-semibold"
               >
                 Add Review
               </button>

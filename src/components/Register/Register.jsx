@@ -59,7 +59,7 @@ const Register = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-base-100 inter-font">
       <title>Register</title>
-      <div className="w-full max-w-md bg-base-100 shadow-2xl rounded-2xl p-8">
+      <div className="w-full max-w-md bg-base-100 shadow-2xl rounded-2xl p-8 transform hover:scale-105 transition duration-300">
         {/* Heading */}
         <h2 className="text-2xl font-bold text-center mb-2 text-gradient">
           Register Now!

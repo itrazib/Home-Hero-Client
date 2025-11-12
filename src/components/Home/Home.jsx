@@ -9,6 +9,7 @@ const Home = () => {
     const Navigate = useNavigate()
   return (
     <div className="max-w-[1550px] mx-auto ">
+      <title>Home</title>
       <HeroSlider></HeroSlider>
       <div>
     
