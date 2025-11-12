@@ -34,7 +34,7 @@ const HeroSlider = () => {
                             bg-gradient-to-br from-purple-500/80 via-pink-400/70 to-orange-300/50 clip-path-diagonal md:clip-path-diagonal-left">
               
              
-              <div className="absolute inset-0 bg-black/30 rounded-l-2xl"></div>
+              <div className="absolute inset-0 bg-black/30 "></div>
 
               {/* Text content */}
               <div className="relative z-10">
@@ -71,7 +71,7 @@ const HeroSlider = () => {
                 transition={{ repeat: Infinity, duration: 6 }}
               />
               <motion.div
-                className="absolute -bottom-10 right-10 w-32 h-32 bg-purple-400 rounded-full opacity-20 blur-3xl"
+                className="absolute -bottom-10 right-10 w-32 h-32 bg-purple-400  opacity-20 blur-3xl"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 8 }}
               />
@@ -103,7 +103,7 @@ const HeroSlider = () => {
           >
             <div className="w-full md:w-1/2 relative flex flex-col justify-center px-6 md:px-20 py-10
                             bg-gradient-to-br from-blue-500/60 via-teal-400/50 to-green-300/30 clip-path-diagonal md:clip-path-diagonal-left">
-              <div className="absolute inset-0 bg-black/30 rounded-2xl"></div>
+              <div className="absolute inset-0 bg-black/30 "></div>
               <div className="relative z-10">
                 <motion.h1
                   initial={{ y: 60, opacity: 0 }}
@@ -156,7 +156,7 @@ const HeroSlider = () => {
           >
             <div className="w-full md:w-1/2 relative flex flex-col justify-center px-6 md:px-20 py-10
                             bg-gradient-to-br from-pink-500/60 via-purple-400/50 to-red-300/30 clip-path-diagonal md:clip-path-diagonal-left">
-              <div className="absolute inset-0 bg-black/30 rounded-2xl"></div>
+              <div className="absolute inset-0 bg-black/30 "></div>
               <div className="relative z-10">
                 <motion.h1
                   initial={{ y: 60, opacity: 0 }}

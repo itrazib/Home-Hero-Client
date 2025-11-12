@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 
 const Login = () => {
-  const { signIngoogle, signInEmail} = useContext(AuthContext);
+  const { signIngoogle, signInEmail } = useContext(AuthContext);
 
   const Navigate = useNavigate();
   const location = useLocation();
@@ -15,13 +15,13 @@ const Login = () => {
     const email = e.target.email.value;
 
     signInEmail(email, password)
-    .then(result => {
-      console.log(result.user)
-      Navigate(location.state || '/')
-    })
-    .catch(err => {
-      console.log(err.message)
-    })
+      .then((result) => {
+        console.log(result.user);
+        Navigate(location.state || "/");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
 
   const handleGoogleSignIn = () => {
@@ -36,8 +36,8 @@ const Login = () => {
       });
   };
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-50">
-      <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8">
+    <div className="flex justify-center items-center min-h-screen bg-base-100 ">
+      <div className="w-full max-w-md bg-base-100 shadow-2xl rounded-2xl p-8 transform hover:scale-105 transition duration-300">
         {/* Heading */}
         <h2 className="text-2xl font-bold text-center mb-2 text-gradient">
           Login
@@ -77,12 +77,11 @@ const Login = () => {
           </div>
 
           <div className="text-right mb-5">
-            <a
-              href="#"
-              className="text-sm text-purple-600 hover:underline text-gradient"
-            >
-              Forgot password?
-            </a>
+            <Link to='/forget-password'>
+              <button className="text-gradient font-medium hover:underline">
+                Forgot Password?
+              </button>
+            </Link>
           </div>
 
           {/* Sign In button */}

@@ -10,6 +10,7 @@ import AddService from "../components/AddService/AddService";
 import MyBookings from "../components/MyBookings/MyBookings";
 import Profile from "../components/Profile/Profile";
 import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
+import ForgetPassword from "../components/Forgetpassword/ForgetPassword";
 
 export const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+             {
+                path:'/forget-password',
+                element:<ForgetPassword></ForgetPassword>
             },
             {
                 path:'/my-service',
@@ -62,6 +67,7 @@ export const router = createBrowserRouter([
                     <ServiceDetails></ServiceDetails>
                 </PrivateRoute>
             }
+           
         ]
     }
 ])

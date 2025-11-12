@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 
 const Register = () => {
-  const{ createUser, setUser,  signIngoogle } = useContext(AuthContext)
+  const { createUser, setUser, signIngoogle } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const Navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -13,43 +14,52 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const image = e.target.image.value;
-    const user = {
-      displayName : name,
-      photoURL: image,
-      email: email
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+    
+    if (!passwordRegex.test(password)) {
+      setError(
+        "Password must be at least 6 characters long and contain one uppercase and one lowercase letter."
+      );
+      return; 
+    } else {
+      setError(""); 
     }
-    // console.log(user)
-     
+
+    const user = {
+      displayName: name,
+      photoURL: image,
+      email: email,
+    };
+
     createUser(email, password)
-    .then(result => {
-      console.log(result.user)
-      setUser(user)
-      Navigate('/')
-    })
-    .catch(err => {
-      console.log(err.message)
-    })
-  
-  }
-  
+      .then((result) => {
+        console.log(result.user);
+        setUser(user);
+        Navigate("/");
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setError(err.message);
+      });
+  };
+
   const handleGoogleSignup = () => {
-    console.log("clicks");
     signIngoogle()
       .then((result) => {
         console.log(result.user);
-        Navigate(location.state || "/");
+        Navigate("/");
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-
-
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-50 inter-font">
+    <div className="flex justify-center items-center min-h-screen bg-base-100 inter-font">
       <title>Register</title>
-      <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8">
+      <div className="w-full max-w-md bg-base-100 shadow-2xl rounded-2xl p-8">
         {/* Heading */}
         <h2 className="text-2xl font-bold text-center mb-2 text-gradient">
           Register Now!
@@ -58,8 +68,7 @@ const Register = () => {
           Already have an account?{" "}
           <a
             onClick={() => Navigate("/login")}
-            href="/login"
-            className="text-gradient font-medium hover:underline"
+            className="text-gradient font-medium hover:underline cursor-pointer"
           >
             Login Now
           </a>
@@ -75,6 +84,7 @@ const Register = () => {
               name="name"
               placeholder="Enter your name"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              required
             />
           </div>
 
@@ -86,6 +96,7 @@ const Register = () => {
               name="email"
               placeholder="Enter your email"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              required
             />
           </div>
 
@@ -108,11 +119,18 @@ const Register = () => {
               name="password"
               placeholder="Enter your password"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              required
             />
+            {error && (
+              <p className="text-red-500 text-sm mt-1">{error}</p>
+            )}
           </div>
 
           {/* Register button */}
-          <button className="w-full py-2  text-white font-semibold rounded-lg bg-gradient-to-r from-orange-400 via-pink-500 to-violet-600 shadow-lg hover:scale-105 transform transition">
+          <button
+            type="submit"
+            className="w-full py-2 text-white font-semibold rounded-lg bg-gradient-to-r from-orange-400 via-pink-500 to-violet-600 shadow-lg hover:scale-105 transform transition"
+          >
             Register
           </button>
         </form>
@@ -125,7 +143,10 @@ const Register = () => {
         </div>
 
         {/* Google Sign Up */}
-        <button onClick={handleGoogleSignup} className="w-full py-2 flex justify-center items-center gap-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-all">
+        <button
+          onClick={handleGoogleSignup}
+          className="w-full py-2 flex justify-center items-center gap-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-all"
+        >
           <FcGoogle className="text-xl" />
           <span className="font-medium">Sign Up With Google</span>
         </button>
