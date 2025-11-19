@@ -38,7 +38,7 @@ npm run dev
 ## Live URLs
 <p>Live Project URL:  https://hero-home.netlify.app/ </p>
 <p> Live API URL : https://home-hero-server-rouge.vercel.app/</p>
-## Project Dependencies
+<h1>Project Dependencies </h1>
 <p>@tailwindcss/vite : ^4.1.17</p>
 <p>firebase : ^12.5.0</p>
 <p>framer-motion : ^12.23.24</p>
