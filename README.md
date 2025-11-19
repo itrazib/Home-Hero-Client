@@ -39,30 +39,28 @@ npm run dev
 Live Project URL:  https://hero-home.netlify.app/
 Live API URL : https://home-hero-server-rouge.vercel.app/
 ## Project Dependencies
-"dependencies": {
-    "@tailwindcss/vite": "^4.1.17",
-    "firebase": "^12.5.0",
-    "framer-motion": "^12.23.24",
-    "motion": "^12.23.24",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-icons": "^5.5.0",
-    "react-router": "^7.9.5",
-    "react-toastify": "^11.0.5",
-    "sweetalert2": "^11.26.3",
-    "tailwindcss": "^4.1.17"
-  },
+<p>@tailwindcss/vite : ^4.1.17</p>
+<p>firebase : ^12.5.0</p>
+<p>framer-motion : ^12.23.24</p>
+<p>motion : ^12.23.24</p>
+<p>react : ^19.1.1</p>
+<p>react-dom : ^19.1.1</p>
+<p>react-icons : ^5.5.0</p>
+<p>react-router : ^7.9.5</p>
+<p>react-toastify : ^11.0.5</p>
+<p>sweetalert2 : ^11.26.3</p>
+<p>tailwindcss : ^4.1.17</p>
   "devDependencies": {
-    "@eslint/js": "^9.36.0",
-    "@types/react": "^19.1.16",
-    "@types/react-dom": "^19.1.9",
-    "@vitejs/plugin-react": "^5.0.4",
-    "daisyui": "^5.4.7",
-    "eslint": "^9.36.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.22",
-    "globals": "^16.4.0",
-    "vite": "^7.1.7"
+  <p>@eslint/js : ^9.36.0</p>
+<p>@types/react : ^19.1.16</p>
+<p>@types/react-dom : ^19.1.9</p>
+<p>@vitejs/plugin-react : ^5.0.4</p>
+<p>daisyui : ^5.4.7</p>
+<p>eslint : ^9.36.0</p>
+<p>eslint-plugin-react-hooks : ^5.2.0</p>
+<p>eslint-plugin-react-refresh : ^0.4.22</p>
+<p>globals : ^16.4.0</p>
+<p>vite : ^7.1.7</p>
   }
 
 📧 Developer Info
